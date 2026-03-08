@@ -199,7 +199,7 @@
                 <h3>التطور اللغوي</h3>
                 <p>اضغط لاستعراض المحاضرات</p>
             </div>
-            <div class="subject-card" onclick="showLectures('التشريح والفيزيولوجيا')">
+            <div class="subject-card" onclick="showLectures(' التشريح والفيزيولوجيا السمعية و النطقية')">
                 <h3>تشريح جهاز النطق</h3>
                 <p>اضغط لاستعراض المحاضرات</p>
             </div>
