@@ -1,278 +1,460 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قسم تقويم الكلام واللغة | كلية العلوم الصحية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #4a90e2;
-            --secondary-color: #a29bfe;
-            --accent-color: #00cec9;
-            --bg-dark: #0f172a;
-            --card-bg: rgba(255, 255, 255, 0.1);
-        }
+<meta charset="UTF-8">
+<title>كلية العلوم الصحية - جامعة دمشق</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* تأثيرات الخلفية */
-        .background-blob {
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--primary-color), transparent);
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.3;
-            animation: float 20s infinite alternate;
-        }
-
-        @keyframes float {
-            from { transform: translate(-10%, -10%); }
-            to { transform: translate(100%, 50%); }
-        }
-
-        header {
-            padding: 40px 20px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(to left, #fff, var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        h2 {
-            margin-bottom: 30px;
-            border-right: 5px solid var(--accent-color);
-            padding-right: 15px;
-        }
-
-        /* قسم المواد */
-        .subjects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 60px;
-        }
-
-        .subject-card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .subject-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-            border-color: var(--accent-color);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        /* تفاصيل المحاضرات */
-        .lectures-display {
-            display: none;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 25px;
-            margin-top: 20px;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .lecture-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            margin-bottom: 10px;
-            background: rgba(0,0,0,0.2);
-            border-radius: 12px;
-        }
-
-        .btn-download {
-            background: var(--accent-color);
-            color: #000;
-            padding: 5px 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        /* قسم الأخبار */
-        .news-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .news-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.05);
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 20px;
-            transition: 0.4s;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .news-card:hover {
-            background: linear-gradient(transparent, var(--primary-color));
-        }
-
-        .news-tag {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--secondary-color);
-            padding: 3px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 50px;
-            opacity: 0.6;
-        }
-    </style>
+<style>
+:root{
+--primary:#6366f1;
+--secondary:#22c55e;
+--bg:#f1f5f9;
+--card:#ffffff;
+--text:#1e293b;
+}
+.dark{
+--bg:#0f172a;
+--card:#1e293b;
+--text:#f8fafc;
+--primary:#38bdf8;
+--secondary:#a78bfa;
+}
+body{
+margin:0;
+font-family:Tahoma;
+background:var(--bg);
+color:var(--text);
+transition:.3s;
+}
+nav{
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+}
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
+nav li{
+cursor:pointer;
+}
+header{
+text-align:center;
+padding:70px;
+background:linear-gradient(120deg,var(--primary),var(--secondary));
+color:white;
+}
+.bigBtn{
+padding:25px 60px;
+font-size:22px;
+margin:20px;
+border:none;
+border-radius:12px;
+background:var(--primary);
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+.bigBtn:hover{
+transform:scale(1.08);
+background:var(--secondary);
+}
+.page{
+display:none;
+padding:40px;
+text-align:center;
+}
+.active{
+display:block;
+}
+.card{
+background:var(--card);
+padding:20px;
+margin:10px auto;
+width:260px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+cursor:pointer;
+transition:.3s;
+}
+.card:hover{
+transform:translateY(-5px);
+}
+#lectures li{
+background:var(--card);
+margin:10px auto;
+padding:15px;
+width:60%;
+border-radius:10px;
+display:flex;
+justify-content:space-between;
+}
+.panel{
+background:var(--card);
+padding:20px;
+margin:20px auto;
+width:60%;
+border-radius:10px;
+}
+input,select{
+padding:10px;
+margin:5px;
+}
+footer{
+text-align:center;
+padding:20px;
+font-weight:bold;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="background-blob"></div>
+<nav>
+<h3>كلية العلوم الصحية</h3>
+<ul>
+<li onclick="showPage('home')">الرئيسية</li>
+<li onclick="showPage('semester1')">الفصل الأول</li>
+<li onclick="showPage('semester2')">الفصل الثاني</li>
+<li onclick="showPage('login')">غرفة المدير</li>
+<li onclick="toggleTheme()">🌙</li>
+</ul>
+</nav>
 
-    <header>
-        <h1>كلية العلوم الصحية</h1>
-        <p>قسم تقويم الكلام واللغة - البوابة الأكاديمية</p>
-    </header>
+<header>
+<h1>جامعة دمشق</h1>
+<p>قسم تقويم الكلام واللغة - السنة الأولى</p>
+</header>
 
-    <div class="container">
-        
-        <h2>مواد القسم</h2>
-        <div class="subjects-grid">
-            <div class="subject-card" onclick="showLectures('علم الأصوات اللغوية')">
-                <h3>علم الأصوات اللغوية</h3>
-                <p>اضغط لاستعراض المحاضرات</p>
-            </div>
-            <div class="subject-card" onclick="showLectures('اضطرابات النطق')">
-                <h3>اضطرابات النطق</h3>
-                <p>اضغط لاستعراض المحاضرات</p>
-            </div>
-            <div class="subject-card" onclick="showLectures('التطور اللغوي')">
-                <h3>التطور اللغوي</h3>
-                <p>اضغط لاستعراض المحاضرات</p>
-            </div>
-            <div class="subject-card" onclick="showLectures(' التشريح والفيزيولوجيا السمعية و النطقية')">
-                <h3>تشريح جهاز النطق</h3>
-                <p>اضغط لاستعراض المحاضرات</p>
-            </div>
-        </div>
+<!-- HOME -->
+<section id="home" class="page active">
+<h2>اختر الفصل</h2>
+<button class="bigBtn" onclick="showPage('semester1')">الفصل الأول</button>
+<button class="bigBtn" onclick="showPage('semester2')">الفصل الثاني</button>
+</section>
 
-        <div id="lectures-container" class="lectures-display">
-            <h3 id="subject-title" style="color: var(--accent-color); margin-bottom: 20px;"></h3>
-            <div id="lectures-list">
-                </div>
-        </div>
+<!-- SEMESTER 1 -->
+<section id="semester1" class="page">
+<h2>مواد الفصل الأول</h2>
+<div id="subjects1"></div>
+<h3>الأخبار</h3>
+<div id="news1"></div>
+</section>
 
-        <hr style="margin: 60px 0; opacity: 0.1;">
+<!-- SEMESTER 2 -->
+<section id="semester2" class="page">
+<h2>مواد الفصل الثاني</h2>
+<div id="subjects2"></div>
+<h3>الأخبار</h3>
+<div id="news2"></div>
+</section>
 
-        <h2>آخر أخبار الكلية</h2>
-        <div class="news-section">
-            <div class="news-card">
-                <span class="news-tag">إعلان</span>
-                <h4>بدء التسجيل للمؤتمر السنوي لصعوبات التعلم</h4>
-                <p>التاريخ: 15 فبراير 2026</p>
-            </div>
-            <div class="news-card">
-                <span class="news-tag">هام</span>
-                <h4>تعديل جدول الامتحانات العملية للعام الحالي</h4>
-                <p>متاح الآن عبر البوابة الإلكترونية</p>
-            </div>
-            <div class="news-card">
-                <span class="news-tag">ندوة</span>
-                <h4>ورشة عمل حول استخدام التقنيات الحديثة في علاج التأتأة</h4>
-                <p>يوم الأربعاء القادم في المدرج الرئيسي</p>
-            </div>
-        </div>
+<!-- SUBJECT PAGE -->
+<section id="subjectPage" class="page">
+<button onclick="goBack()">⬅ رجوع</button>
+<h2 id="subjectTitle"></h2>
+<input placeholder="بحث عن محاضرة..." onkeyup="searchLecture(this.value)">
+<ul id="lectures"></ul>
+</section>
 
-    </div>
+<!-- LOGIN -->
+<section id="login" class="page">
+<h3>دخول المدير</h3>
+<input type="password" id="pass">
+<button onclick="login()">دخول</button>
+</section>
 
-    <footer>
-        <p>حقوق النشر © 2026 - قسم تقويم الكلام واللغة</p>
-    </footer>
+<!-- ADMIN / غرفة المدير -->
+<section id="admin" class="page">
+<h2>غرفة المدير</h2>
 
-    <script>
-        // بيانات تجريبية للمواد والمحاضرات
-        const lecturesData = {
-            'علم الأصوات اللغوية': ['المحاضرة 1: مدخل إلى علم الأصوات', 'المحاضرة 2: مخارج الحروف', 'المحاضرة 3: الصفات الصوتية'],
-            'اضطرابات النطق': ['المحاضرة 1: تصنيف الاضطرابات', 'المحاضرة 2: التلعثم عند الأطفال', 'المحاضرة 3: آليات الفحص التشخيصي'],
-            'التطور اللغوي': ['المحاضرة 1: مراحل اكتساب اللغة', 'المحاضرة 2: النظريات اللغوية', 'المحاضرة 3: اللغة والبيئة'],
-            'التشريح والفيزيولوجيا': ['المحاضرة 1: تشريح الحنجرة', 'المحاضرة 2: عضلات الوجه واللسان', 'المحاضرة 3: الجهاز العصبي والكلام']
-        };
+<div class="panel">
+<h3>إضافة مادة</h3>
+<input id="subjectName" placeholder="اسم المادة">
+<select id="subjectSemester">
+<option value="1">الفصل الأول</option>
+<option value="2">الفصل الثاني</option>
+</select>
+<button onclick="addSubject()">إضافة</button>
+</div>
 
-        function showLectures(subjectName) {
-            const container = document.getElementById('lectures-container');
-            const title = document.getElementById('subject-title');
-            const list = document.getElementById('lectures-list');
+<div class="panel">
+<h3>إضافة محاضرة</h3>
+<select id="lectureSubject"></select>
+<input id="lectureTitle" placeholder="اسم المحاضرة">
+<input id="lectureNumber" placeholder="رقم المحاضرة">
+<input type="file" id="lectureFile">
+<button onclick="addLecture()">إضافة</button>
+</div>
 
-            // تحديث المحتوى
-            title.innerText = subjectName;
-            list.innerHTML = ''; // تفريغ القائمة الحالية
+<div class="panel">
+<h3>إضافة خبر</h3>
+<select id="newsSemester">
+<option value="1">الفصل الأول</option>
+<option value="2">الفصل الثاني</option>
+</select>
+<input id="newsText" placeholder="نص الخبر">
+<button onclick="addNews()">إضافة</button>
+</div>
 
-            lecturesData[subjectName].forEach(lec => {
-                const item = document.createElement('div');
-                item.className = 'lecture-item';
-                item.innerHTML = `
-                    <span>${lec}</span>
-                    <a href="#" class="btn-download" onclick="alert('سيبدأ التحميل قريباً...')">تحميل PDF</a>
-                `;
-                list.appendChild(item);
-            });
+<div class="panel">
+<h3>حذف مادة</h3>
+<select id="deleteSubjectList"></select>
+<button onclick="deleteSubjectAdmin()">حذف المادة</button>
+</div>
 
-            // إظهار القسم مع تأثير
-            container.style.display = 'block';
-            window.scrollTo({
-                top: container.offsetTop - 100,
-                behavior: 'smooth'
-            });
-        }
-    </script>
+<div class="panel">
+<h3>حذف محاضرة</h3>
+<select id="deleteLectureList"></select>
+<button onclick="deleteLectureAdmin()">حذف المحاضرة</button>
+</div>
+
+<div class="panel">
+<h3>حذف خبر</h3>
+<select id="deleteNewsList"></select>
+<button onclick="deleteNewsAdmin()">حذف الخبر</button>
+</div>
+
+</section>
+
+<footer>
+✦ بإشراف صديقكم عمر زينو ✦
+</footer>
+
+<script>
+let currentSubject=""
+
+function showPage(id){
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"))
+document.getElementById(id).classList.add("active")
+}
+function toggleTheme(){document.body.classList.toggle("dark")}
+
+/* LOGIN */
+function login(){
+if(document.getElementById("pass").value=="admin123"){
+showPage("admin")
+refreshDeleteLists()
+}else{alert("كلمة السر خاطئة")}
+}
+
+/* SUBJECTS */
+function loadSubjects(){
+let subs=JSON.parse(localStorage.getItem("subjects"))||[]
+let s1=document.getElementById("subjects1")
+let s2=document.getElementById("subjects2")
+s1.innerHTML=""; s2.innerHTML=""
+subs.forEach(s=>{
+let div=document.createElement("div")
+div.className="card"
+div.innerHTML=`<strong>${s.name}</strong>`
+div.onclick=()=>openSubject(s.name)
+if(s.semester=="1") s1.appendChild(div)
+else s2.appendChild(div)
+})
+let select=document.getElementById("lectureSubject")
+select.innerHTML=""
+subs.forEach(s=>{
+let opt=document.createElement("option")
+opt.value=s.name
+opt.textContent=s.name
+select.appendChild(opt)
+})
+refreshDeleteLists()
+}
+
+/* ADD SUBJECT */
+function addSubject(){
+let name=document.getElementById("subjectName").value
+let sem=document.getElementById("subjectSemester").value
+let subs=JSON.parse(localStorage.getItem("subjects"))||[]
+subs.push({name:name,semester:sem})
+localStorage.setItem("subjects",JSON.stringify(subs))
+loadSubjects()
+}
+
+/* SUBJECT PAGE */
+function openSubject(name){
+currentSubject=name
+document.getElementById("subjectTitle").textContent=name
+showPage("subjectPage")
+loadLectures()
+}
+
+function goBack(){
+let subs=JSON.parse(localStorage.getItem("subjects"))||[]
+let sub=subs.find(s=>s.name==currentSubject)
+if(sub.semester=="1") showPage("semester1")
+else showPage("semester2")
+}
+
+/* LECTURES */
+function addLecture(){
+let subject=document.getElementById("lectureSubject").value
+let title=document.getElementById("lectureTitle").value
+let num=document.getElementById("lectureNumber").value
+let file=document.getElementById("lectureFile").files[0]
+if(!file){alert("اختر ملف المحاضرة"); return}
+let reader=new FileReader()
+reader.onload=function(){
+let data=JSON.parse(localStorage.getItem("lectures"))||[]
+data.push({subject:subject,title:title,number:num,file:reader.result,downloads:0})
+localStorage.setItem("lectures",JSON.stringify(data))
+alert("تمت إضافة المحاضرة")
+loadLectures()
+refreshDeleteLists()
+}
+reader.readAsDataURL(file)
+}
+
+function loadLectures(){
+let data=JSON.parse(localStorage.getItem("lectures"))||[]
+let list=document.getElementById("lectures")
+list.innerHTML=""
+
+let filtered = data.filter(l=>l.subject==currentSubject).sort((a,b)=>a.number-b.number)
+
+if(filtered.length === 0){
+let li = document.createElement("li")
+li.textContent = "⚠ لم تتم إضافة محاضرات بعد"
+li.style.fontStyle="italic"
+li.style.color="gray"
+list.appendChild(li)
+return
+}
+
+filtered.forEach(l=>{
+let li=document.createElement("li")
+li.innerHTML=`محاضرة ${l.number} - ${l.title} 
+<button onclick="downloadLecture('${l.title}')">تحميل (${l.downloads||0})</button>`
+list.appendChild(li)
+})
+}
+
+/* DOWNLOAD */
+function downloadLecture(title){
+let data=JSON.parse(localStorage.getItem("lectures"))||[]
+let lec=data.find(l=>l.title==title)
+lec.downloads++
+localStorage.setItem("lectures",JSON.stringify(data))
+window.open(lec.file)
+loadLectures()
+}
+
+/* NEWS */
+function addNews(){
+let sem=document.getElementById("newsSemester").value
+let text=document.getElementById("newsText").value
+if(!text || text.trim()===""){ alert("لا يمكن إضافة خبر فارغ!"); return; }
+let news=JSON.parse(localStorage.getItem("news"))||[]
+news.push({semester:sem,text:text})
+localStorage.setItem("news",JSON.stringify(news))
+loadNews()
+refreshDeleteLists()
+}
+
+function loadNews(){
+let n1=document.getElementById("news1")
+let n2=document.getElementById("news2")
+if(!n1||!n2) return
+
+let news = JSON.parse(localStorage.getItem("news")) || [];
+news = news.filter(n => n.text && n.text.trim() !== "");
+localStorage.setItem("news", JSON.stringify(news));
+
+n1.innerHTML=""; n2.innerHTML=""
+
+let news1 = news.filter(n=>n.semester=="1")
+let news2 = news.filter(n=>n.semester=="2")
+
+if(news1.length===0){
+let div=document.createElement("div")
+div.textContent="⚠ لم تتم إضافة أخبار بعد"
+div.style.fontStyle="italic"
+div.style.color="gray"
+n1.appendChild(div)
+}else{
+news1.forEach(n=>{
+let div=document.createElement("div")
+div.className="card"
+div.innerHTML=`${n.text}`
+n1.appendChild(div)
+})
+}
+
+if(news2.length===0){
+let div=document.createElement("div")
+div.textContent="⚠ لم تتم إضافة أخبار بعد"
+div.style.fontStyle="italic"
+div.style.color="gray"
+n2.appendChild(div)
+}else{
+news2.forEach(n=>{
+let div=document.createElement("div")
+div.className="card"
+div.innerHTML=`${n.text}`
+n2.appendChild(div)
+})
+}
+}
+
+/* DELETE LISTS FOR ADMIN */
+function refreshDeleteLists(){
+let subs=JSON.parse(localStorage.getItem("subjects"))||[]
+let lecs=JSON.parse(localStorage.getItem("lectures"))||[]
+let news=JSON.parse(localStorage.getItem("news"))||[]
+let sList=document.getElementById("deleteSubjectList")
+let lList=document.getElementById("deleteLectureList")
+let nList=document.getElementById("deleteNewsList")
+if(!sList) return
+sList.innerHTML=""; lList.innerHTML=""; nList.innerHTML=""
+subs.forEach(s=>{let o=document.createElement("option"); o.value=s.name; o.textContent=s.name; sList.appendChild(o)})
+lecs.forEach(l=>{let o=document.createElement("option"); o.value=l.title; o.textContent=l.title; lList.appendChild(o)})
+news.forEach(n=>{let o=document.createElement("option"); o.value=n.text; o.textContent=n.text; nList.appendChild(o)})
+}
+
+/* DELETE ADMIN */
+function deleteSubjectAdmin(){
+let name=document.getElementById("deleteSubjectList").value
+let subs=JSON.parse(localStorage.getItem("subjects"))||[]
+subs=subs.filter(s=>s.name!=name)
+localStorage.setItem("subjects",JSON.stringify(subs))
+loadSubjects()
+refreshDeleteLists()
+}
+
+function deleteLectureAdmin(){
+let title=document.getElementById("deleteLectureList").value
+let data=JSON.parse(localStorage.getItem("lectures"))||[]
+data=data.filter(l=>l.title!=title)
+localStorage.setItem("lectures",JSON.stringify(data))
+refreshDeleteLists()
+}
+
+function deleteNewsAdmin(){
+let text=document.getElementById("deleteNewsList").value
+let news=JSON.parse(localStorage.getItem("news"))||[]
+news=news.filter(n=>n.text!=text)
+localStorage.setItem("news",JSON.stringify(news))
+loadNews()
+refreshDeleteLists()
+}
+
+/* SEARCH */
+function searchLecture(txt){
+let items=document.querySelectorAll("#lectures li")
+items.forEach(i=>{i.style.display=i.textContent.includes(txt)?"flex":"none"})
+}
+
+loadSubjects()
+loadNews()
+refreshDeleteLists()
+</script>
+
 </body>
 </html>
